@@ -3,6 +3,9 @@
 # Apr. 2020
 ##############################################
 
+# Example:
+# python grab_subj_Race_Sex_Age_Educ_Income.py ~/Documents/Research/Datasets/eNKI/COINS_assessment_data_20180806/
+
 import pandas as pd
 import numpy as np
 import os, sys
@@ -16,7 +19,7 @@ if not ddir.strip():
 
 s_hdr = 'ID'
 git_dir = '/Users/jli/Documents/Research/git_repos/eNKI_process'
-odir = git_dir + '/lists'
+odir = git_dir + '/lists/subjects'
 if not os.path.exists(odir):
     os.makedirs(odir)
 ostem = '8100_20180806_'
