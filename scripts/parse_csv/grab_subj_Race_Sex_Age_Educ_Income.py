@@ -30,9 +30,11 @@ all_otxt = []
 # Race, Sex, Age
 fn = ddir + '/8100_Demos_20180806.csv'
 fil_hdr = ['DEM_004', 'DEM_002', 'DEM_001']
-all_demos.append(fil_hdr)
+#all_demos.append(fil_hdr)
+all_demos.append(['Race', 'Sex', 'Age'])
 fil_hdr_concat = '_'.join(fil_hdr)
-o_txt = odir + '/' + ostem + fil_hdr_concat + '_subj.txt'
+#o_txt = odir + '/' + ostem + fil_hdr_concat + '_subj.txt'
+o_txt = odir + '/' + ostem + 'Race_Sex_Age' + '_subj.txt'
 all_otxt.append(o_txt)
 df = gs.JWL_parse_delimited_file(fn)
 count = gs.JWL_count_subj_nonempty_intersect(df, subj_hdr=s_hdr, filter_hdr=fil_hdr, out_txt=o_txt)
@@ -43,6 +45,7 @@ f.close()
 list_in = str_in.split('\n')
 list_in.pop(-1)
 list_out = unique(list_in)
+list_out.sort()
 str_out = '\n'.join(list_out)
 fw = open(o_txt, 'w')
 fw.write(str_out + '\n')
@@ -53,8 +56,10 @@ print "# subjects with race, sex, age recorded: ", count
 # Education (Adults)
 fn = ddir + '/8100_SES-Adult_20180806.csv'
 fil_hdr = ['NKISES_01A']
-all_demos.append(fil_hdr)
-o_txt = odir + '/' + ostem + fil_hdr[0] + '_Adult' + '_subj.txt'
+#all_demos.append(fil_hdr)
+all_demos.append(['Educ'])
+#o_txt = odir + '/' + ostem + fil_hdr[0] + '_Adult' + '_subj.txt'
+o_txt = odir + '/' + ostem + 'Educ' + '_subj.txt'
 all_otxt.append(o_txt)
 df = gs.JWL_parse_delimited_file(fn)
 count = gs.JWL_count_subj_nonempty_intersect(df, subj_hdr=s_hdr, filter_hdr=fil_hdr, out_txt=o_txt)
@@ -65,6 +70,7 @@ f.close()
 list_in = str_in.split('\n')
 list_in.pop(-1)
 list_out = unique(list_in)
+list_out.sort()
 str_out = '\n'.join(list_out)
 fw = open(o_txt, 'w')
 fw.write(str_out + '\n')
@@ -75,9 +81,11 @@ print "# adults with education recorded: ", count
 # household
 fn = ddir + '/8100_Demos-supplement_(2-12-13)_20180806.csv'
 fil_hdr = ['DEMOS_02', 'DEMOS_04']
-all_demos.append(fil_hdr)
+#all_demos.append(fil_hdr)
+all_demos.append(['Income'])
 fil_hdr_concat = '_'.join(fil_hdr)
-o_txt = odir + '/' + ostem + fil_hdr_concat + '_subj.txt'
+#o_txt = odir + '/' + ostem + fil_hdr_concat + '_subj.txt'
+o_txt = odir + '/' + ostem + 'Income' + '_subj.txt'
 all_otxt.append(o_txt)
 df = gs.JWL_parse_delimited_file(fn)
 count = gs.JWL_count_subj_nonempty_intersect(df, subj_hdr=s_hdr, filter_hdr=fil_hdr, out_txt=o_txt)
@@ -88,6 +96,7 @@ f.close()
 list_in = str_in.split('\n')
 list_in.pop(-1)
 list_out = unique(list_in)
+list_out.sort()
 str_out = '\n'.join(list_out)
 fw = open(o_txt, 'w')
 fw.write(str_out + '\n')
@@ -118,6 +127,7 @@ print all_demos
 all_demos_concat = '_'.join(all_demos)
 fw_txt = odir + '/' + ostem + all_demos_concat + '_subj.txt'
 fw = open(fw_txt, 'w')
+list_out.sort()
 str_out = '\n'.join(list_out)
 fw.write(str_out + '\n')
 fw.close()
