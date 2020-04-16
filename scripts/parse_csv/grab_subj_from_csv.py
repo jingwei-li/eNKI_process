@@ -75,7 +75,9 @@ def JWL_count_subj_nonempty_intersect(df, subj_hdr, filter_hdr, out_txt=None):
     except:
         print('df does not contain a column called ',  filter_hdr)
         return
-    
+
+    df.index = range(len(df))
+
     empty_idx = np.where(pd.isnull(hdr_col))
     allrows_idx = np.arange(2, hdr_col.shape[0], 1, dtype=None)
     nonempty_idx = np.setdiff1d(allrows_idx, empty_idx)
@@ -85,7 +87,8 @@ def JWL_count_subj_nonempty_intersect(df, subj_hdr, filter_hdr, out_txt=None):
         subj_keep.to_csv(out_txt, sep=' ', index=False)
 
     nsubj_keep = len(nonempty_idx)
-    return nsubj_keep
+    #subj_keep = subj_keep.values.tolist()
+    return nsubj_keep, subj_keep, nonempty_idx
 
 # function to count how many subjects have non-empty values of given columns "filter_hdr"
 # the list of subjects with non-empty values are output to "out_txt"
