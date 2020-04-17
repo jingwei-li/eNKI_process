@@ -23,6 +23,8 @@ def mkdir_p(path):
 def get_subjects(csv_dir, ls_dir, test, subj_ls_stem):
 	if 'Penn_CNP' in test:
 		csv = csv_dir + '/8100_' + 'Penn_CNP_(12-18-13)' + '_20180806.csv'
+	elif test == 'Demos-supplement':
+		csv = csv_dir + '/8100_' + 'Demos-supplement_(2-12-13)' + '_20180806.csv'
 	else:
 		csv = csv_dir + '/8100_' + test + '_20180806.csv'
 	pheno_ls = ls_dir + '/phenotypes/' + test + '.txt'
