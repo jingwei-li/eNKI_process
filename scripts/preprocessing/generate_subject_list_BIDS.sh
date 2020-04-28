@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BIDS_dir="/data/BnB1/Raw_Data/eNKI_BIDS"
 prefix="sub-A"
