@@ -50,5 +50,19 @@ for s in subjects:
 	ses_anat.append(ses_anat_sub)
 
 print known_ses
-print ses_persub
-print ses_anat
+
+# collect the subjects who have a certain session code
+known_ses.sort()
+sub_per_known_ses = [[] for i in range(len(known_ses))]
+
+for ks in range(0, len(known_ses)):
+	curr_known_ses = known_ses[ks]
+
+	for s_i in range(0, len(subjects)):
+		if curr_known_ses in ses_persub[s_i]:
+			index = ses_persub[s_i].index(curr_known_ses)
+			if ses_anat[s_i][index]:
+				sub_per_known_ses[ks].append(subjects[s_i])
+
+print sub_per_known_ses
+
