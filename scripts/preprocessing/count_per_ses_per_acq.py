@@ -47,6 +47,8 @@ for s in subjects:
 					known_ses.append(ses)
 			count += 1
 
+	ses_anat.append(ses_anat_sub)
+
 print known_ses
 print ses_persub
 print ses_anat
