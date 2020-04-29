@@ -100,12 +100,12 @@ odir = ldir + '/subjects/per_ses_acq/'
 mkdir_p(odir)
 for ks in range(0, len(known_ses)):
 	strout = '\n'.join(sub_per_known_ses[ks])
-	oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '.txt'
+	oname = odir + os.path.basename(os.path.splitext(subj_ls)[0]) + '_' + known_ses[ks] + '.txt'
 	with open(oname, 'w') as f:
 		f.write(strout)
 
 	for ka in range(0, len(known_acq)):
 		strout = '\n'.join(sub_per_ses_acq[ka][ks])
-		oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '_acq-' + known_acq[ka] + '.txt'
+		oname = odir + os.path.basename(os.path.splitext(subj_ls)[0]) + '_' + known_ses[ks] + '_acq-' + known_acq[ka] + '.txt'
 		with open(oname, 'w') as f:
 			f.write(strout)
