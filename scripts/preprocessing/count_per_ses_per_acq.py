@@ -70,7 +70,7 @@ for ks in range(0, len(known_ses)):
 print Nsub_per_known_ses
 
 # collect subject-session combinations which have a certain acquisition code
-known_acq = ['1400', '650', 'cap']
+known_acq = ['1400', '645', 'cap']
 sub_per_ses_acq = []
 Nsub_per_ses_acq = np.zeros((len(known_ses), len(known_acq)))
 for ka in range(0, len(known_acq)):
