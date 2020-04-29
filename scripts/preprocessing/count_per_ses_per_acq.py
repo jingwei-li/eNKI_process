@@ -67,6 +67,22 @@ for ks in range(0, len(known_ses)):
 
 	Nsub_per_known_ses.append(len(sub_per_known_ses[ks]))
 
-print sub_per_known_ses
 print Nsub_per_known_ses
+
+# collect subject-session combinations which have a certain acquisition code
+known_acq = ['1400', '650', 'cap']
+sub_per_ses_acq = []
+Nsub_per_ses_acq = np.zeros(len(known_ses), len(known_acq))
+for ka in range(0, len(known_acq)):
+	sub_per_ses_acq.append([[] for i in range(len(known_ses))])
+	for ks in range(0, len(known_ses)):
+		curr_subjs = sub_per_known_ses[ks]
+		for s in curr_subjs:
+			curr_nii = BIDS_dir + '/' + s + '/' + known_ses[ks] + '/func/' + \
+				s + '_' + known_ses[ks] + '_task-rest_acq-' + known_acq[ka] + '_bold.nii'
+			if os.path.exists(curr_nii):
+				sub_per_ses_acq[ka][ks].append(s)
+				Nsub_per_ses_acq[ks, ka] += 1
+
+print Nsub_per_ses_acq
 
