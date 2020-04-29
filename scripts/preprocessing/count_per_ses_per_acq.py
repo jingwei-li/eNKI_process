@@ -54,6 +54,7 @@ print known_ses
 # collect the subjects who have a certain session code
 known_ses.sort()
 sub_per_known_ses = [[] for i in range(len(known_ses))]
+Nsub_per_known_ses = []
 
 for ks in range(0, len(known_ses)):
 	curr_known_ses = known_ses[ks]
@@ -64,5 +65,8 @@ for ks in range(0, len(known_ses)):
 			if ses_anat[s_i][index]:
 				sub_per_known_ses[ks].append(subjects[s_i])
 
+	Nsub_per_known_ses.append(len(sub_per_known_ses[ks]))
+
 print sub_per_known_ses
+print Nsub_per_known_ses
 
