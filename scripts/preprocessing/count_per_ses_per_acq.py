@@ -19,7 +19,7 @@ args = parser.parse_args()
 subj_ls = args.subj_ls
 BIDS_dir = args.BIDS_dir
 
-with f = open(subj_ls, 'r'):
+with open(subj_ls, 'r') as f:
 	subjects = f.read()
 	subjects = subjects.split()
 
