@@ -24,8 +24,27 @@ with open(subj_ls, 'r') as f:
 	subjects = f.read()
 	subjects = subjects.split()
 
+count = 1
+ses_anat = []
+ses_persub = []
 for s in subjects:
+	ses_anat_sub = []
 	sub_dir = BIDS_dir + '/' + s + '/'
-	print sub_dir
+
 	sessions = os.walk(sub_dir).next()[1]
 	print sessions
+	ses_persub.append(sessions)
+	for ses in sessions:
+		# check if current subject, current session has anat data
+		has_anat = os.path.exists(sub_dir + '/' + ses + '/anat')
+		ses_anat_sub.append(has_anat)
+
+		# collect all possible session codes, only consider sessions with anat
+		if has_anat:
+			if count == 1:
+				known_ses = [ses]
+			else:
+				known_ses.append(ses)
+			count += 1
+
+print known_ses
