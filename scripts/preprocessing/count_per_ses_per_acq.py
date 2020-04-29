@@ -6,6 +6,7 @@ import argparse
 script_name = os.path.realpath(__file__)
 ldir = os.path.abspath(os.path.join(script_name, os.pardir))
 ldir = os.path.abspath(os.path.join(ldir, os.pardir))
+ldir = os.path.abspath(os.path.join(ldir, os.pardir))
 ldir = ldir + '/lists/'
 
 parser = argparse.ArgumentParser()
