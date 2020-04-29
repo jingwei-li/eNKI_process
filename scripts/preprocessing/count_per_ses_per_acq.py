@@ -26,5 +26,6 @@ with open(subj_ls, 'r') as f:
 
 for s in subjects:
 	sub_dir = BIDS_dir + '/' + s + '/'
-	sessions = os.walk('.').next()[1]
+	print sub_dir
+	sessions = os.walk(sub_dir).next()[1]
 	print sessions
