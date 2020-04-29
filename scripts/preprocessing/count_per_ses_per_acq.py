@@ -3,13 +3,13 @@ import os, sys
 import numpy as np
 import argparse
 
-scripts_dir = os.path.realpath(__file__)
-ldir = os.path.abspath(os.path.join(scripts_dir, os.pardir))
+script_name = os.path.realpath(__file__)
+ldir = os.path.abspath(os.path.join(script_name, os.pardir))
 ldir = os.path.abspath(os.path.join(ldir, os.pardir))
 ldir = ldir + '/lists/'
 
 parser = argparse.ArgumentParser()
-subj_ls_def = scripts_dir + 'subjects/subjects_BIDS.txt'
+subj_ls_def = ldir + 'subjects/subjects_BIDS.txt'
 parser.add_argument("--subj_ls", default=subj_ls_def, help="subject list")
 
 BIDS_dir_def = '/data/BnB1/Raw_Data/eNKI_BIDS'
