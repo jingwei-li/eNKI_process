@@ -3,7 +3,7 @@ import os, sys
 import numpy as np
 import argparse
 
-script_dir = os.path.realpath(__file__)
+scripts_dir = os.path.realpath(__file__)
 ldir = os.path.abspath(os.path.join(script_dir, os.pardir))
 ldir = os.path.abspath(os.path.join(ldir, os.pardir))
 ldir = ldir + '/lists/'
