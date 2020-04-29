@@ -32,7 +32,6 @@ for s in subjects:
 	sub_dir = BIDS_dir + '/' + s + '/'
 
 	sessions = os.walk(sub_dir).next()[1]
-	print sessions
 	ses_persub.append(sessions)
 	for ses in sessions:
 		# check if current subject, current session has anat data
@@ -49,3 +48,5 @@ for s in subjects:
 			count += 1
 
 print known_ses
+print ses_persub
+print ses_anat
