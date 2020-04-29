@@ -44,7 +44,8 @@ for s in subjects:
 			if count == 1:
 				known_ses = [ses]
 			else:
-				known_ses.append(ses)
+				if ses not in known_ses:
+					known_ses.append(ses)
 			count += 1
 
 print known_ses
