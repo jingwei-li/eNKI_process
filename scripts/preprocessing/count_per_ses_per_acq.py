@@ -106,6 +106,6 @@ for ks in range(0, len(known_ses)):
 
 	for ka in range(0, len(known_acq)):
 		strout = '\n'.join(sub_per_ses_acq[ka][ks])
-		oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '_acq-' known_acq[ka] + '.txt'
+		oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '_acq-' + known_acq[ka] + '.txt'
 		with open(oname, 'w') as f:
 			f.write(strout)
