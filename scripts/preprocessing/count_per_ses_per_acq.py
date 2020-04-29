@@ -3,6 +3,15 @@ import os, sys
 import numpy as np
 import argparse
 
+def mkdir_p(path):
+	try:
+		os.makedirs(path)
+	except OSError as exc:
+		if exc.errno == errno.EEXIST and os.path.isdir(path):
+			pass
+		else:
+			raise
+
 script_name = os.path.realpath(__file__)
 ldir = os.path.abspath(os.path.join(script_name, os.pardir))
 ldir = os.path.abspath(os.path.join(ldir, os.pardir))
@@ -86,3 +95,17 @@ for ka in range(0, len(known_acq)):
 
 print Nsub_per_ses_acq
 
+# write out to lists
+odir = ldir + '/subjects/per_ses_acq/'
+mkdir_p(odir)
+for ks in range(0, len(known_ses)):
+	strout = '\n'.join(sub_per_known_ses[ks])
+	oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '.txt'
+	with open(oname, 'w') as f:
+		f.write(strout)
+
+	for ka in range(0, len(known_acq)):
+		strout = '\n'.join(sub_per_ses_acq[ka][ks])
+		oname = odir + os.path.splitext(subj_ls)[1] + '_' + known_ses[ks] + '_acq-' known_acq[ka] + '.txt'
+		with open(oname, 'w') as f:
+			f.write(strout)
